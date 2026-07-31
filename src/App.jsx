@@ -1,26 +1,20 @@
-import Rasmitha from "./Rasmitha";
+import { useState } from "react";
+import "./App.css";
+
 function App() {
-  
+  const [name, setName] = useState("");
+
   return (
     <div>
-      <Rasmitha name="rasmitha"
-      course="Btech"
-      clg="snit"
-      />
-<br/>
-      <Rasmitha name="raju"
-      course="mtech"
-      clg="snit"
-      />
-<br/>
-      <Rasmitha name="maha"
-      course="Btech"
-      clg="snit"
+      <input
+        type="text"
+        onChange={(e) => setName(e.target.value)}
       />
 
-   
-
-  </div>
+      <h2>My name is {name}</h2>
+      <h2>hello {name}</h2>
+    </div>
   );
 }
+
 export default App;
