@@ -1,19 +1,43 @@
 import { useState } from "react";
-import "./App.css";
 
 function App() {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    alert("Login Successful");
+  }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      
+      
+
       <input
         type="text"
-        onChange={(e) => setName(e.target.value)}
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
 
-      <h2>My name is {name}</h2>
-      <h2>hello {name}</h2>
-    </div>
+      <br /><br />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <br /><br />
+
+      <button type="submit">
+        Login
+      </button>
+    </form>
   );
 }
 
