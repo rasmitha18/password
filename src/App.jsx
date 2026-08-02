@@ -1,44 +1,14 @@
-import { useState } from "react";
-
+import { useEffect,useState } from "react"; 
 function App() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    alert("Login Successful");
-  }
-
+  const [count,setCount]=useState(0);
+  useEffect(()=> {
+    console.log("count update");
+  },[count]);
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      
-      
-
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-
-      <br /><br />
-
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <br /><br />
-
-      <button type="submit">
-        Login
-      </button>
-    </form>
-  );
+    <div>
+      <h1>{count}</h1> 
+      <button onClick={()=>setCount(count+1)}>+</button>
+    </div>
+  )
 }
-
 export default App;
